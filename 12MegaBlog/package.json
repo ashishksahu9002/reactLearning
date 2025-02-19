@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.30.8",
+    "@editorjs/header": "^2.8.8",
+    "@editorjs/image": "^2.10.2",
+    "@editorjs/list": "^2.0.4",
     "@reduxjs/toolkit": "^2.5.1",
     "appwrite": "^17.0.0",
     "html-react-parser": "^5.2.2",
