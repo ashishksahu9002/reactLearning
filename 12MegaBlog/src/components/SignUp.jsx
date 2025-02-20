@@ -7,21 +7,19 @@ import { useDispatch } from 'react-redux'
 import { login } from '../store/authSlice'
 
 function SignUp() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
-    const [error, setError] = useState("");
+    const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const dispatch = useDispatch()
+    const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
         setError("")
         try {
-            const userData = await authService.creatAccount(data)
+            const userData = await authService.createAccount(data)
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if (userData) {
-                    dispatch(login(userData))
-                    navigate("/")
-                }
+                if (userData) dispatch(login(userData));
+                navigate("/")
             }
         } catch (error) {
             setError(error.message)
@@ -51,7 +49,7 @@ function SignUp() {
                     <div className='space-y-5'>
                         <Input
                             label="Full Name: "
-                            palceholder="Enter your full name"
+                            placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
                             })}
@@ -72,10 +70,11 @@ function SignUp() {
                             type="password"
                             {...register("password", {
                                 required: true,
-                                minLength: 8,
                             })}
                         />
-                        <Button type="Submit" className="w-full" >Create Account</Button>
+                        <Button type="submit" className="w-full">
+                            Create Account
+                        </Button>
                     </div>
                 </form>
             </div>
